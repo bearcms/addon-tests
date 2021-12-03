@@ -26,7 +26,9 @@ class PHPUnitTestCase extends \BearFramework\AddonTests\PHPUnitTestCase
     protected function initializeApp(bool $setLogger = true, bool $setDataDriver = true, bool $setCacheDriver = true, bool $addAddon = true): \BearFramework\App
     {
         $app = parent::initializeApp($setLogger, $setDataDriver, $setCacheDriver, false);
-        $this->initializeAddon($app);
+        $app->addons->add('bearcms/bearframework-addon');
+        $app->bearCMS->initialize([]);
+        $this->initializeAddon($app->bearCMS);
         return $app;
     }
 
@@ -36,13 +38,11 @@ class PHPUnitTestCase extends \BearFramework\AddonTests\PHPUnitTestCase
      * @param array $options
      * @return void
      */
-    protected function initializeAddon(\BearFramework\App $app, array $options = [])
+    protected function initializeAddon(\BearCMS $bearCMS)
     {
-        $app->addons->add('bearcms/bearframework-addon');
-        $app->bearCMS->initialize([]);
         $addonID = $this->getTestedAddonID();
         if ($addonID !== null) {
-            $app->bearCMS->addons->add($addonID, $options);
+            $bearCMS->addons->add($addonID);
         }
     }
 
