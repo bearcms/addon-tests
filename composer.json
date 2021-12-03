@@ -1,0 +1,28 @@
+{
+    "name": "bearcms/addon-tests",
+    "description": "Bear CMS addon test utilities",
+    "keywords": [
+        "Bear CMS",
+        "addon",
+        "tests"
+    ],
+    "homepage": "https://github.com/bearcms/addon-tests",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bear CMS",
+            "email": "support@bearcms.com",
+            "homepage": "https://bearcms.com/"
+        }
+    ],
+    "require": {
+        "php": "7.1.*|7.2.*|7.3.*|7.4.*|8.0.*|8.1.*",
+        "bearcms/bearframework-addon": "1.*",
+        "bearframework/addon-tests": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BearCMS\\AddonTests\\": "src/"
+        }
+    }
+}
